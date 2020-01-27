@@ -1,0 +1,31 @@
+{
+    "name": "abs/testimonial-pkg",
+    "description": "For Testimonial CRUD",
+    "type": "library",
+    "require":
+    {},
+    "require-dev":
+    {},
+    "authors": [
+    {
+        "name": "Abdul",
+        "email": "abdulpro@gmail.com"
+    }],
+    "minimum-stability": "dev",
+    "extra":
+    {
+        "laravel":
+        {
+            "providers": [
+                "Abs\\TestimonialPkg\\TestimonialPkgServiceProvider"
+            ]
+        }
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "Abs\\TestimonialPkg\\": "src/"
+        }
+    }
+}
