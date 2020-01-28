@@ -14,14 +14,10 @@ class Testimonial extends Model {
 	protected $table = 'testimonials';
 	public $timestamps = true;
 	protected $fillable = [
-		'code',
-		'name',
-		'cust_group',
-		'dimension',
-		'mobile_no',
-		'email',
-		'company_id',
-		'address',
+		'first_name',
+		'last_name',
+		'rating',
+		'content',
 	];
 
 	public static function createFromObject($record_data) {

@@ -46,7 +46,11 @@ app.component('testimonialList', {
             },
             columns: [
                 { data: 'action', searchable: false, class: 'action' },
-                { data: 'question', name: 'testimonials.question', searchable: true },
+                { data: 'first_name', name: 'testimonials.first_name', searchable: true },
+                { data: 'last_name', name: 'testimonials.last_name', searchable: true },
+                { data: 'rating', name: 'testimonials.rating', searchable: true },
+                { data: 'content', name: 'testimonials.first_name', searchable: true },
+                { data: 'created_at', searchable: false },
             ],
             "infoCallback": function(settings, start, end, max, total, pre) {
                 $('#table_info').html(total + '/' + max)
@@ -59,12 +63,12 @@ app.component('testimonialList', {
             },
         });
         $('.dataTables_length select').select2();
-        $('.page-header-content .display-inline-block .data-table-title').html('FAQs <span class="badge badge-secondary" id="table_info">0</span>');
+        $('.page-header-content .display-inline-block .data-table-title').html('Testimonials <span class="badge badge-secondary" id="table_info">0</span>');
         $('.page-header-content .search.display-inline-block .add_close_button').html('<button type="button" class="btn btn-img btn-add-close"><img src="' + image_scr2 + '" class="img-responsive"></button>');
         $('.page-header-content .refresh.display-inline-block').html('<button type="button" class="btn btn-refresh"><img src="' + image_scr3 + '" class="img-responsive"></button>');
         $('.add_new_button').html(
             '<a href="#!/testimonial-pkg/testimonial/add" type="button" class="btn btn-secondary" dusk="add-btn">' +
-            'Add FAQ' +
+            'Add Testimonial' +
             '</a>'
         );
 
@@ -141,7 +145,6 @@ app.component('testimonialList', {
 app.component('testimonialForm', {
     templateUrl: testimonial_form_template_url,
     controller: function($http, $location, HelperService, $scope, $routeParams, $rootScope) {
-        get_form_data_url = typeof($routeParams.id) == 'undefined' ? laravel_routes['getTestimonialFormData'] : laravel_routes['getTestimonialFormData'] + '/' + $routeParams.id;
         var self = this;
         self.hasPermission = HelperService.hasPermission;
         self.angular_routes = angular_routes;
@@ -170,19 +173,29 @@ app.component('testimonialForm', {
         var v = jQuery(form_id).validate({
             ignore: '',
             rules: {
-                'question': {
+                'first_name': {
                     required: true,
                     minlength: 3,
-                    maxlength: 255,
+                    maxlength: 64,
                 },
-                'answer': {
+                'last_name': {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 64,
+                },
+                'rating': {
+                    required: true,
+                    min: 1,
+                    max: 5,
+                },
+                'content': {
                     required: true,
                     minlength: 3,
                     maxlength: 255,
                 },
             },
             invalidHandler: function(event, validator) {
-                checkAllTabNoty()
+                showCheckAllTabErrorNoty()
             },
             submitHandler: function(form) {
                 let formData = new FormData($(form_id)[0]);

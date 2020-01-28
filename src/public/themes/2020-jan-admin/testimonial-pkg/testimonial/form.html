@@ -13,10 +13,10 @@
                             </div>
                         </div><!-- Page Header Inner -->
                         <div class="page-header-inner page-title display-inline-block">
-                            <h1 class="title">{{$ctrl.action}} FAQ</h1>
+                            <h1 class="title">{{$ctrl.action}} Testimonial</h1>
                             <p class="subtitle">
                                 <a href="#!/testimonial-pkg/testimonial/list">
-                                    FAQs List
+                                    Testimonials List
                                 </a> /
                                 {{$ctrl.action}}
                             </p>
@@ -56,29 +56,53 @@
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label>
-                                                                Question
+                                                                First Name
                                                                 <span class="mandatory">
                                                                     *
                                                                 </span>
                                                             </label>
-                                                            <input type="text" name="question" ng-model='$ctrl.testimonial.question' class="form-control required" placeholder="Enter Question">
+                                                            <input type="text" name="first_name" ng-model='$ctrl.testimonial.first_name' class="form-control" placeholder="Enter First Name">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label>
-                                                                Answer
+                                                                Last Name
                                                                 <span class="mandatory">
                                                                     *
                                                                 </span>
                                                             </label>
-                                                            <input type="text" name="answer" ng-model='$ctrl.testimonial.answer' class="form-control required" placeholder="Enter Answer">
+                                                            <input type="text" name="last_name" ng-model='$ctrl.testimonial.last_name' class="form-control" placeholder="Enter Last Name">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label>
-                                                                Active Status
+                                                                Rating
+                                                                <span class="mandatory">
+                                                                    *
+                                                                </span>
+                                                            </label>
+                                                            <input type="numeric" name="rating" ng-model='$ctrl.testimonial.rating' class="form-control required" placeholder="Enter Rating" value="5">
+                                                        </div>
+                                                    </div>
+                                                </div><!-- Row -->
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Content
+                                                                <span class="mandatory">
+                                                                    *
+                                                                </span>
+                                                            </label>
+                                                            <textarea type="text" name="content" ng-model='$ctrl.testimonial.content' class="form-control required" placeholder="Enter Content"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Status
                                                                 <span class="mandatory">
                                                                     *
                                                                 </span>
