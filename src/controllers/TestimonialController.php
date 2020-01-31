@@ -13,8 +13,29 @@ use Yajra\Datatables\Datatables;
 
 class TestimonialController extends Controller {
 
+	private $company_id;
 	public function __construct() {
 		$this->data['theme'] = config('custom.admin_theme');
+		$this->company_id = config('custom.company_id');
+	}
+
+	public function getTestimonials(Request $request) {
+		$this->data['testimonials'] = Testimonial::
+			select([
+			'testimonials.first_name',
+			'testimonials.last_name',
+			'testimonials.content',
+			'testimonials.rating',
+		])
+			->where('testimonials.company_id', $this->company_id)
+			->where('testimonials.entity_type_id', 1)
+			->orderby('testimonials.display_order', 'asc')
+			->get()
+		;
+		$this->data['success'] = true;
+
+		return response()->json($this->data);
+
 	}
 
 	public function getTestimonialList(Request $request) {
