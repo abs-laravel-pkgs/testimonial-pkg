@@ -43,8 +43,8 @@ class TestimonialController extends Controller {
 			->join('users as cb', 'cb.id', 'testimonials.created_by_id')
 			->select([
 				'testimonials.id',
-				'cb.first_name',
-				'cb.last_name',
+				'testimonials.first_name',
+				'testimonials.last_name',
 				'testimonials.content',
 				'testimonials.rating',
 				DB::raw('testimonials.deleted_at as status'),

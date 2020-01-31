@@ -63,22 +63,12 @@
                     </div><!-- Item Wrap Body -->
                     <div class="item-wrap-body-details" ng-repeat="(key, testimonial) in $ctrl.testimonials">
                         <div class="stared-section">
-                            <h5 class="title">{{testimonial.first_name}} {{testimonial.last_name}}</h5>
+                            <h5 class="title">
+                                {{testimonial.first_name}} {{testimonial.last_name}}
+                            </h5>
                             <div class="main">
-                                <div class="star-border">
-                                    <div class="star"></div>
-                                </div>
-                                <div class="star-border">
-                                    <div class="star"></div>
-                                </div>
-                                <div class="star-border">
-                                    <div class="star"></div>
-                                </div>
-                                <div class="star-border">
-                                    <div class="star"></div>
-                                </div>
-                                <div class="star-border">
-                                    <div class="star"></div>
+                                <div class="star-border" ng-repeat="i in [1,2,3,4,5]">
+                                    <div class="star {{i<= testimonial.rating ? 'active' : ''}}"></div>
                                 </div>
                             </div><!-- Main -->
                         </div><!-- Started Section -->
@@ -86,7 +76,7 @@
                             {{testimonial.content}}
                         </p>
                     </div><!-- Item Wrap Body Details -->
-                    <div class="item-wrap-body-details">
+                    <div class="item-wrap-body-details d-none">
                         <div class="pagination-block text-left">
                             <ul class="pagination">
                                 <li class="page-item"><a class="page-link" href="#">«</a></li>
