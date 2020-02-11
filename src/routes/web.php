@@ -8,7 +8,7 @@ Route::group(['namespace' => 'Abs\TestimonialPkg', 'middleware' => ['web', 'auth
 	Route::get('/testimonial/delete/{id}', 'TestimonialController@deleteTestimonial')->name('deleteTestimonial');
 });
 
-Route::group(['namespace' => 'Abs\TestimonialPkg', 'middleware' => ['web', 'auth'], 'prefix' => 'testimonial-pkg'], function () {
+Route::group(['namespace' => 'Abs\TestimonialPkg', 'middleware' => ['web'], 'prefix' => 'testimonial-pkg'], function () {
 	//TESTIMONIALS
 	Route::get('/testimonials/get', 'TestimonialController@getTestimonials')->name('getTestimonials');
 });
