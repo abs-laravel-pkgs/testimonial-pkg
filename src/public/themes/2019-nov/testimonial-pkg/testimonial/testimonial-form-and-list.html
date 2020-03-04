@@ -1,0 +1,85 @@
+<div class="item-view-page">
+    <div class="item-view-wrap">
+        <div class="item-view-wrap-header">
+            <h5 class="title">TESTIMONIALS</h5>
+        </div><!-- Item View Wrap Header -->
+        <div class="item-view-wrap-body">
+            <div class="item-wrap-body-button">
+                <button data-toggle="collapse" data-target="#testimonial_panel" class="btn btn-blue-gradient">Add Your Testimonial</button>
+                <div id="testimonial_panel" class="collapse">
+                    <div class="testimonial_panel-wrap">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Full Name <span class="mandatory">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Enter Full Name">
+                                        </div><!-- Field -->
+                                    </div><!-- Column -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Testimonial <span class="mandatory">*</span></label>
+                                            <textarea class="form-control" rows="4" placeholder="Enter Testimonial"></textarea>
+                                        </div><!-- Field -->
+                                    </div><!-- Column -->
+                                    <div class="col-md-8">
+                                        <div class="stared-section">
+                                            <label>Your Rating <span class="mandatory">*</span></label>
+                                            <div class="main">
+                                                <div class="star-border">
+                                                    <div class="star"></div>
+                                                </div>
+                                                <div class="star-border">
+                                                    <div class="star"></div>
+                                                </div>
+                                                <div class="star-border">
+                                                    <div class="star"></div>
+                                                </div>
+                                                <div class="star-border">
+                                                    <div class="star"></div>
+                                                </div>
+                                                <div class="star-border">
+                                                    <div class="star"></div>
+                                                </div>
+                                            </div><!-- Main -->
+                                        </div><!-- Started Section -->
+                                    </div><!-- Column -->
+                                    <div class="col-md-4 text-right">
+                                        <button class="btn btn-green-gradient reflection">Send</button>
+                                    </div><!-- Column -->
+                                </div><!-- Row -->
+                            </div><!-- Column -->
+                        </div><!-- Row -->
+                    </div>
+                </div><!-- Collapse Panel -->
+            </div><!-- Item Wrap Body -->
+            <div class="item-wrap-body-details" ng-repeat="(key, testimonial) in $ctrl.testimonials">
+                <div class="stared-section">
+                    <h5 class="title">
+                        {{testimonial.first_name}} {{testimonial.last_name}}
+                    </h5>
+                    <div class="main">
+                        <div class="star-border" ng-repeat="i in [1,2,3,4,5]">
+                            <div class="star {{i<= testimonial.rating ? 'active' : ''}}"></div>
+                        </div>
+                    </div><!-- Main -->
+                </div><!-- Started Section -->
+                <p class="description brdr-bm">
+                    {{testimonial.content}}
+                </p>
+            </div><!-- Item Wrap Body Details -->
+            <div class="item-wrap-body-details d-none">
+                <div class="pagination-block text-left">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">«</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">»</a></li>
+                    </ul>
+                </div>
+            </div><!-- Item Wrap Body Details -->
+        </div><!-- Item View Wrap Body -->
+    </div><!-- Item View Wrap -->
+</div><!-- Item View Page -->
