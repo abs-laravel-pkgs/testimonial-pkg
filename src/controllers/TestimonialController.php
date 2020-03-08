@@ -1,7 +1,7 @@
 <?php
 
 namespace Abs\TestimonialPkg;
-use Abs\Basic\Address;
+use Abs\BasicPkg\Address;
 use Abs\TestimonialPkg\Testimonial;
 use App\Http\Controllers\Controller;
 use Auth;
