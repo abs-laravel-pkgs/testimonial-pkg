@@ -2,13 +2,15 @@
 
 namespace Abs\TestimonialPkg;
 
+use Abs\CompanyPkg\Traits\CompanyableTrait;
 use Abs\HelperPkg\Traits\SeederTrait;
 use App\Company;
 use App\Config;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Testimonial extends Model {
+class Testimonial extends BaseModel {
+	use CompanyableTrait;
 	use SeederTrait;
 	use SoftDeletes;
 	protected $table = 'testimonials';
